@@ -1,0 +1,11 @@
+@font-face { 
+	font-family: "iconfont"; 
+	font-display: swap;
+	src: url("C://Users/Windows/Documents/1. Диск D/IT/portfolio/src/assets/svgicons/preview/iconfont.woff2?f0845c62d20a3d067509b7dbb55fc39e") format("woff2"); 
+} 
+[class*="--icon-"]::before{
+	font-family: iconfont; 
+}
+	[class*="--icon-telegram"]::before { 
+		content: "\f101"; 
+	} 
