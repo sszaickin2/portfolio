@@ -1,4 +1,6 @@
-<template src="@components/templates/main/main.html" locals='{
+<template
+  src="@components/templates/main/main.html"
+  locals='{
 		"title":"Портфолио", 
 		"lang":"ru",
 		"preloader": {
@@ -7,16 +9,27 @@
 		},
 		"keywords":"", 
 		"description":""
-	}'>
-	<block name="header">
-		<include src="@components/layout/header/header.html" locals='{"active":"Home"}'></include>
-	</block>
-	<block name="main">
-		<include src="@components/pages/index/index.html" locals='{}'></include>
-	</block>
-	<block name="footer">
-		<include src="@components/layout/footer/footer.html" locals='{}'></include>
-	</block>
-	<block name="popup">
-	</block>
+	}'
+>
+  <block name="header">
+    <include src="@components/layout/header/header.html" locals='{"active":"Home"}'></include>
+  </block>
+  <block name="main">
+    <include src="@components/pages/index/index.html" locals="{}"></include>
+    <include src="@components/custom/tms/tms.html" locals="{}"></include>
+    <include src="@components/custom/cases/cases.html" locals="{}"></include>
+    <include src="@components/custom/portfolio/portfolio.html" locals="{}"></include>
+    <include src="@components/custom/experience/experience.html" locals="{}"></include>
+  </block>
+  <block name="footer">
+    <include src="@components/layout/footer/footer.html" locals="{}"></include>
+  </block>
+  <block name="popup">
+    <include src="@components/layout/popup/popup.html"></include>
+    <include src="@components/layout/popup/popup-tms.html"></include>
+    <include src="@components/layout/popup/popup-sber.html"></include>
+    <include src="@components/layout/popup/popup-yandex.html"></include>
+    <include src="@components/layout/popup/popup-location.html"></include>
+    <include src="@components/layout/popup/popup-web.html"></include>
+  </block>
 </template>

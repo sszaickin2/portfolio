@@ -1,0 +1,272 @@
+.cases {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    width: calc(50% + 1px);
+    background: url("@img/cases-background.jpg") center / cover no-repeat;
+  }
+
+  &::after {
+    right: 0;
+    width: calc(50% + 1px);
+    background: #000;
+  }
+
+  // .cases__container
+  &__container {
+    position: relative;
+    z-index: 3;
+  }
+
+  // .cases__content
+  &__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 100vh;
+
+    @media (max-width: toEm($tablet)) {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+  }
+
+  // .cases_yandex--title
+  &_yandex--title {
+    font-weight: 700;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-size: 28px;
+    max-width: 390px;
+
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  // .cases_yandex--text
+  &_yandex--text {
+    @include adaptiveValue("font-size", 22, 18);
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0;
+
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  // .cases__sber
+  &__sber {
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 28px;
+  }
+
+  // .cases__sber--title
+  &__sber--title {
+    @include adaptiveValue("font-size", 28, 22);
+    color: #2c2c2e;
+    font-weight: 700;
+    line-height: 32px;
+    text-transform: uppercase;
+    max-width: 415px;
+
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  // .cases__sber--text
+  &__sber--text {
+    @include adaptiveValue("font-size", 22, 18);
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0;
+    color: #2c2c2e;
+
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  // .cases__sber--img
+  &__sber--img {
+    position: relative;
+    z-index: 1;
+
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    pointer-events: none;
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+
+      max-height: min(585px, 70svh);
+    }
+  }
+
+  // .cases__yandex
+  &__yandex {
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    padding: 40px 28px;
+
+    @media (max-width: toEm($tablet)) {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+
+  // .cases__yandex--img
+  &__yandex--img {
+    position: relative;
+    z-index: 1;
+
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    pointer-events: none;
+
+    video {
+      display: block;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 30px;
+
+      max-height: min(585px, 70svh);
+    }
+  }
+
+  // .cases__sber-hover-area
+  &__sber-hover-area {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: calc(50% - 1px);
+
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: auto;
+
+    background: rgba(155, 138, 251, 0);
+    transition: background 0.3s ease;
+  }
+
+  // .cases__yandex-hover-area
+  &__yandex-hover-area {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 1px);
+    right: 0;
+
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: auto;
+
+    background: rgba(155, 138, 251, 0);
+    transition: background 0.3s ease;
+  }
+
+  @media (any-hover: hover) and (pointer: fine) {
+    &__sber-hover-area:hover,
+    &__yandex-hover-area:hover {
+      background: rgba(155, 138, 251, 0.8);
+    }
+  }
+
+  @media (max-width: toEm($tablet)) {
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    &__sber::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      z-index: 0;
+      pointer-events: none;
+      background: url("@img/cases-background.jpg") center / cover no-repeat;
+    }
+
+    &__yandex::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      z-index: 0;
+      pointer-events: none;
+      background: #000;
+    }
+
+    &__sber-hover-area,
+    &__yandex-hover-area {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      z-index: 2;
+      cursor: pointer;
+      pointer-events: auto;
+      background: rgba(155, 138, 251, 0);
+      transition: background 0.3s ease;
+    }
+
+    @media (any-hover: hover) and (pointer: fine) {
+      &__sber-hover-area:hover,
+      &__yandex-hover-area:hover {
+        background: rgba(155, 138, 251, 0.8);
+      }
+    }
+  }
+}

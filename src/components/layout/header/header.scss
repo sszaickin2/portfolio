@@ -1,5 +1,16 @@
 .header {
-	// .header__container
-	&__container {
-	}
+  // .header__container
+  &__container {
+  }
+
+  // .header__logo
+
+  &__logo {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
 }

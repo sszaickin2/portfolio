@@ -83,5 +83,8 @@
   },
   "optionalDependencies": {
     "@img/sharp-win32-x64": "latest"
+  },
+  "dependencies": {
+    "about": "^2.0.1"
   }
 }

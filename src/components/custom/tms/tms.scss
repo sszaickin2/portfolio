@@ -1,0 +1,253 @@
+.tms {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+  overflow: hidden;
+  @media (max-width:toEm($tablet)){
+    padding-top: 100px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: url("@img/tms-background.jpg") center / cover no-repeat;
+  }
+
+  &::after {
+    right: 0;
+    background: #2c2c2e;
+  }
+
+  // .tms__container
+  &__container {
+    position: relative;
+    z-index: 3;
+  }
+
+  // .tms__content
+  &__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 100vh;
+
+    @media (max-width: toEm($tablet)) {
+      grid-template-columns: 1fr;
+      min-height: 100svh;
+    }
+  }
+
+  // .tms__smart
+  &__smart {
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 28px;
+  }
+
+  // .tms__tvip
+  &__tvip {
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    padding: 40px 28px;
+
+    @media (max-width: toEm($tablet)) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  // .tms__smart-hover-area
+  &__smart-hover-area {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50dvw;
+
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: auto;
+
+    background: rgba(155, 138, 251, 0);
+    transition: background 0.3s ease;
+  }
+
+  // .tms__tvip-hover-area
+  &__tvip-hover-area {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 50dvw;
+    right: 0;
+
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: auto;
+
+    background: rgba(155, 138, 251, 0);
+    transition: background 0.3s ease;
+  }
+
+  @media (any-hover: hover) and (pointer: fine) {
+    &__smart-hover-area:hover,
+    &__tvip-hover-area:hover {
+      background: rgba(155, 138, 251, 0.8);
+    }
+  }
+
+  // .tms__smart--title
+  &__smart--title {
+    position: relative;
+    z-index: 3;
+    max-width: 380px;
+    font-weight: 700;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-size: 28px;
+    pointer-events: none;
+  }
+
+  // .tms_tvip--title
+  &_tvip--title {
+    position: relative;
+    z-index: 3;
+    font-weight: 700;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-size: 28px;
+    max-width: 300px;
+    pointer-events: none;
+  }
+
+  // .tms__smart--img
+  &__smart--img {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-height: 0;
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  // .tms__tvip--img
+  &__tvip--img {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  @media (max-width: toEm($tablet)) {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    &__smart::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      z-index: 0;
+      pointer-events: none;
+      background: url("@img/tms-background.jpg") center / cover no-repeat;
+    }
+
+    &__tvip::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      z-index: 0;
+      pointer-events: none;
+      background: #2c2c2e;
+    }
+
+    &__smart-hover-area {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      z-index: 2;
+      cursor: pointer;
+      pointer-events: auto;
+      background: rgba(155, 138, 251, 0);
+      transition: background 0.3s ease;
+    }
+
+    &__tvip-hover-area {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      z-index: 2;
+      cursor: pointer;
+      pointer-events: auto;
+      background: rgba(155, 138, 251, 0);
+      transition: background 0.3s ease;
+    }
+
+    @media (any-hover: hover) and (pointer: fine) {
+      &__smart-hover-area:hover,
+      &__tvip-hover-area:hover {
+        background: rgba(155, 138, 251, 0.8);
+      }
+    }
+  }
+}
